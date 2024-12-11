@@ -1,18 +1,21 @@
 import { View, Text } from "react-native";
-import { colors, fontFamily } from "@/styles/theme";
 import { s } from "./style";
+import { IconProps } from "@tabler/icons-react-native";
+// import { colors } from "@/styles/theme";
 
 export type Props = {
     title: string,
     description: string,
+    icon: React.ComponentType<IconProps>
 }
 
-export function Step(props: Props) {
+export function Step({title, description, icon: Icon}: Props) {
     return (
         <View style={s.container}>
+            {Icon && <Icon size={32} />}
             <View style={s.details}>
-                <Text style={s.title}>{props.title}</Text>
-                <Text style={s.description}>{props.description}</Text>
+                <Text style={s.title}>{title}</Text>
+                <Text style={s.description}>{description}</Text>
             </View>
         </View>
     )
