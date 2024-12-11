@@ -42,7 +42,7 @@ export default function Home() {
     }, [category]);
 
     return (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, paddingTop: 24, backgroundColor: "#ccc"}}>
             <Categories data={categories} onSelect={(id) => setCategory(id)} selected={category} />
 
                 <Places data={marketPlaces} />

@@ -20,11 +20,11 @@ export default function Layout() {
     return (
         <GestureHandlerRootView style={{flex: 1}}>
             <Stack 
-            screenOptions={{
-                headerShown: false,
-                contentStyle: { backgroundColor: colors.gray['100']}
-            }}
-        />
+                screenOptions={{
+                    headerShown: false,
+                    contentStyle: { backgroundColor: colors.gray['100']}
+                }}
+            />
         </GestureHandlerRootView>
         
     )
