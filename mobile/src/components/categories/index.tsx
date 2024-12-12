@@ -1,6 +1,6 @@
 import { s } from "./style";
 import { Category } from "@/components/category";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 
 export type CategoriesProps = {
     id: string
@@ -15,12 +15,14 @@ type Props = {
 
 export function Categories({data, selected, onSelect}: Props) {
     return (
-        <FlatList
-            data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <Category name={item.name} iconId={item.id} onPress={() => onSelect(item.id)} isSelected={item.id === selected} />}
-            horizontal
-            contentContainerStyle={s.content}
-        />
+        <View style={s.container}>
+            <FlatList
+                data={data}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => <Category name={item.name} iconId={item.id} onPress={() => onSelect(item.id)} isSelected={item.id === selected} />}
+                horizontal
+                contentContainerStyle={s.content}
+            />
+        </View>
     )
 }

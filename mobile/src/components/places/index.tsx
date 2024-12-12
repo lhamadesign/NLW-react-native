@@ -3,13 +3,15 @@ import { Place, PlaceProps } from "@/components/place";
 import { Text, useWindowDimensions } from "react-native";
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import { s } from "./style";
+import { router } from "expo-router";
 
 type Props = {
     data: PlaceProps[]
 };
 
 export type MarketPlacesProps = PlaceProps & {
-
+    latitude: number
+    longitude: number
 };
 
 export function Places({data}: Props) {
@@ -31,7 +33,7 @@ export function Places({data}: Props) {
             >
             <BottomSheetFlatList 
                 data={data} keyExtractor={(item) => item.id}
-                renderItem={({item}) => <Place data={item} />}
+                renderItem={({item}) => <Place data={item} onPress={() => router.navigate(`/market/${item.id}`)} />}
                 contentContainerStyle={s.content}
                 ListHeaderComponent={() => (
                     <Text style={s.title}>Explore places nearby</Text>
